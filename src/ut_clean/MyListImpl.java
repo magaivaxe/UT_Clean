@@ -27,8 +27,7 @@ public class MyListImpl<T extends Comparable<T>> implements MyList<T>
         size = -1;
     }
     
-    /**
-     * (non-Javadoc)
+    /* (non-Javadoc)
      * @see ut_clean.MyList#add(T)  
      */
     @Override
@@ -51,11 +50,14 @@ public class MyListImpl<T extends Comparable<T>> implements MyList<T>
         //The size is add by one
         size++;
     }
-
+    
+    /* (non-Javadoc)
+     * @see ut_clean.MyList#removeAt(int)
+     */
     @Override
     public T removeAt(int pos)
     {
-        
+        //
     }
 
     @Override
