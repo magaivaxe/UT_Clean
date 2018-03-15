@@ -24,22 +24,22 @@ public class MyListImplIT
     }
     
     @BeforeClass
-    public static void setUpClass()
+    public static void setUpClass() throws Exception
     {
     }
     
     @AfterClass
-    public static void tearDownClass()
+    public static void tearDownClass() throws Exception
     {
     }
     
     @Before
-    public void setUp()
+    public void setUp() throws Exception
     {
     }
     
     @After
-    public void tearDown()
+    public void tearDown() throws Exception
     {
     }
 
@@ -49,11 +49,6 @@ public class MyListImplIT
     @Test
     public void testAdd()
     {
-        System.out.println("add");
-        Object e = null;
-        MyListImpl instance = new MyListImpl();
-        instance.add(e);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -63,13 +58,6 @@ public class MyListImplIT
     @Test
     public void testRemoveAt()
     {
-        System.out.println("removeAt");
-        int pos = 0;
-        MyListImpl instance = new MyListImpl();
-        Object expResult = null;
-        Object result = instance.removeAt(pos);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -79,13 +67,6 @@ public class MyListImplIT
     @Test
     public void testRemoveItem()
     {
-        System.out.println("removeItem");
-        Object item = null;
-        MyListImpl instance = new MyListImpl();
-        Object expResult = null;
-        Object result = instance.removeItem(item);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -95,12 +76,6 @@ public class MyListImplIT
     @Test
     public void testSetAt()
     {
-        System.out.println("setAt");
-        Object item = null;
-        int pos = 0;
-        MyListImpl instance = new MyListImpl();
-        instance.setAt(item, pos);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -110,13 +85,6 @@ public class MyListImplIT
     @Test
     public void testGetAt()
     {
-        System.out.println("getAt");
-        int pos = 0;
-        MyListImpl instance = new MyListImpl();
-        Object expResult = null;
-        Object result = instance.getAt(pos);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -126,26 +94,7 @@ public class MyListImplIT
     @Test
     public void testGetSize()
     {
-        System.out.println("getSize");
-        MyListImpl instance = new MyListImpl();
-        int expResult = 0;
-        int result = instance.getSize();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of reset method, of class MyListImpl.
-     */
-    @Test
-    public void testReset()
-    {
-        System.out.println("reset");
-        MyListImpl instance = new MyListImpl();
-        instance.reset();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }
