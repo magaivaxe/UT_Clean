@@ -48,7 +48,7 @@ public class MyListImplTest
         prop = new Properties();
         testSet = new LinkedList<Integer>();
         //Load the properties file 
-        propFile = new FileInputStream("config.properties");
+        propFile = new FileInputStream("test/ut_clean/config.properties");
         prop.load(propFile);
         //Do a parse to integer on size in the config file
         expectedSize = Integer.parseInt(prop.getProperty("size"));
