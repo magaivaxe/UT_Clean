@@ -14,12 +14,12 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author sire_marcos
+ * @author eleves
  */
-public class UT_CleanIT
+public class UT_CleanTest
 {
     
-    public UT_CleanIT()
+    public UT_CleanTest()
     {
     }
     

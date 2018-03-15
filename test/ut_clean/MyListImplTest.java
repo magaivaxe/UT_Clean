@@ -18,14 +18,15 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author sire_marcos
+ * @author eleves
  */
-public class MyListImplIT
+public class MyListImplTest
 {
     
-    public MyListImplIT()
+    public MyListImplTest()
     {
     }
+    
     //========= OBJECTS ALLOCATIONS to test before, afterclass and before, after
     //The class object to test
     private static MyList<Integer> sut;
@@ -140,5 +141,5 @@ public class MyListImplIT
     {
         fail("The test case is a prototype.");
     }
-
+    
 }
