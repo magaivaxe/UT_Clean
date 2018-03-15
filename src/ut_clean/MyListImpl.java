@@ -57,13 +57,68 @@ public class MyListImpl<T extends Comparable<T>> implements MyList<T>
     @Override
     public T removeAt(int pos)
     {
-        //
+        //Condition to an exception of out of index
+        if (pos > size)
+        {
+            throw new ArrayIndexOutOfBoundsException("The size is "+ size + 
+                    " the element " + pos + "don't exists");
+        }
+        //Variables type class Elem
+        Elem previus = start;
+        Elem toRemove = previus;
+        //Condition to remove and replace the removed element by null
+        if (pos == 0)
+        {
+            //This code remplace the zero position by the next element
+            toRemove = start;
+            start.setNext(start.getNext());
+        }
+        else
+        {
+            while (pos-- > 1)
+            {            
+                //Replace the value on pos by null
+                previus = previus.getNext();
+                toRemove = previus.getNext();
+                previus.setNext(toRemove.getNext());
+            }
+        }
+        //Size decremantation
+        size--;
+        //the removed element
+        return toRemove.getContent();
     }
-
+    
+    /* (non-Javadoc)
+     * @see ut_clean.MyList#removeItem(item)
+     */
     @Override
     public T removeItem(T item)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Variables
+        Elem previus = null;
+        Elem toRemove = start;
+        boolean found = false;
+        //Conditions to found the item
+        if(start != null && start.getContent().equals(item))
+        {
+            found = true;
+            toRemove = start;
+            start.setNext(start.getNext());
+            size--;
+        }
+        else
+        {
+            while (!found && toRemove != null)
+            {                
+                previus = toRemove;
+                toRemove = toRemove.getNext();
+                //Condition to found
+                if(toRemove.getContent().equals(item)){ found = true; }
+            }
+            previus.setNext(toRemove.getNext());
+        }
+        return (toRemove == null) ? null:toRemove.getContent();
     }
 
     @Override
@@ -91,8 +146,7 @@ public class MyListImpl<T extends Comparable<T>> implements MyList<T>
     public void reset() {size = -1; start = null; current = start;}
     
     /**
-     * I tried change the 'Elem' class to a class file, but I failed. This class
-     * must be whited here. I don't know the response now.
+     * THIS CLASS RUN AS A STRUCTURE!
      */
     class Elem
     {
