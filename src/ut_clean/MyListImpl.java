@@ -109,6 +109,7 @@ public class MyListImpl<T extends Comparable<T>> implements MyList<T>
         }
         else
         {
+            //Loop to find the item
             while (!found && toRemove != null)
             {                
                 previus = toRemove;
@@ -124,19 +125,37 @@ public class MyListImpl<T extends Comparable<T>> implements MyList<T>
     @Override
     public void setAt(T item, int pos)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Condition to set 
+        if (pos > size)
+        {
+            throw new ArrayIndexOutOfBoundsException("The size is " + size +
+                    ". The element " + pos + "don't exists");
+        }
+        //Variables
+        Elem current = start;
+        while (pos-- > 0){ current = current.getNext(); }
+        current.setContent(item);
     }
 
     @Override
     public T getAt(int pos)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Condition to get
+        if (pos > size)
+        {
+            throw new ArrayIndexOutOfBoundsException("The size is " + size +
+                    ". The element " + pos + "don't exists");
+        }
+         //Variables
+        Elem current = start;
+        while (pos-- > 0){ current = current.getNext(); }
+        return current.getContent();
     }
 
     @Override
     public int getSize()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return size + 1;
     }
     
     /**
