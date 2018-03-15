@@ -107,6 +107,11 @@ public class MyListImplIT
         sut.add(new Integer(8));
         //New check
         assertEquals(expectedSize + 1, sut.getSize());
+        //To know if the elements are presents one by one in the list
+        for (int i = 0; i < testSet.size(); i++)
+        {
+            assertEquals(testSet.get(i), sut.getAt(i));
+        }
     }
 
     /**
