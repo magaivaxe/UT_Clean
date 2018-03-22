@@ -8,7 +8,9 @@ package ut_clean;
 import java.io.FileInputStream;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Properties;
+import java.util.Random;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -28,7 +30,7 @@ public class MyListImplTest
     }
     
     //========= OBJECTS ALLOCATIONS to test before, afterclass and before, after
-    //The class object to test
+    //The object list to test
     private static MyList<Integer> sut;
     //The original size type integer
     private static int expectedSize;
@@ -38,6 +40,8 @@ public class MyListImplTest
     private static List<Integer> testSet;
     //The properties object file
     private static FileInputStream propFile;
+    //The random allocation
+    private static Random random;
     //==========================================================================
     
     //This method is lanced before the first test
@@ -47,6 +51,7 @@ public class MyListImplTest
         //Objects initializations or Instantiations
         prop = new Properties();
         testSet = new LinkedList<Integer>();
+        random = new Random();
         //Load the properties file 
         propFile = new FileInputStream("test/ut_clean/config.properties");
         prop.load(propFile);
@@ -121,7 +126,29 @@ public class MyListImplTest
     @Test
     public void testRemoveAt()
     {
-        fail("The test case is a prototype.");
+        //variables
+        int expectedRemovedValue, removedValue = 0;
+        //Check if the list to test are equals
+        assertEquals(expectedSize, sut.getSize());
+        //Random index to remove
+        int rIndex = random.nextInt(testSet.size());
+        //Check element that will be removed
+        expectedRemovedValue = sut.getAt(rIndex);
+        assertEquals(sut.getAt(rIndex),testSet.get(rIndex));
+        //Remove element from sut
+        sut.removeAt(rIndex);
+        //Check the size again
+        assertEquals(expectedSize - 1, sut.getSize());
+        //Check the removed element
+        for(int i = 0; i < testSet.size(); i++)
+        {
+            if(!Objects.equals(sut.getAt(i), testSet.get(i)))
+            {
+                removedValue = testSet.get(i);
+                break;
+            }   
+        }
+        assertEquals(expectedRemovedValue, removedValue);
     }
 
     /**
@@ -130,7 +157,7 @@ public class MyListImplTest
     @Test
     public void testRemoveItem()
     {
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -139,7 +166,7 @@ public class MyListImplTest
     @Test
     public void testSetAt()
     {
-        fail("The test case is a prototype.");
+        
     }
     
 }
